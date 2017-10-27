@@ -1,0 +1,31 @@
+{{!< login}}
+
+<article id="login" class="auth">
+  <h1>Auth express</h1>
+  <h2>Sign up!</h2>
+
+  <form action="/signup" method="post" class="local-signup">
+    <fieldset>
+      <label for="name">your name</label>
+      <input type="text" name="name" id="name">
+    </fieldset>
+    <fieldset>
+      <label for="username">username</label>
+      <input type="text" name="username" id="username">
+    </fieldset>
+    <fieldset>
+      <label for="email">email</label>
+      <input type="email" name="email" id="email">
+    </fieldset>
+    <fieldset>
+      <label for="password">password</label>
+      <input type="password" name="password" id="password">
+    </fieldset>
+    <h2> <mark>I'm not a robot</mark> </h2>
+
+    <fieldset>
+      <input type="submit" value="Submit">
+      <a href="/signin">Sign in?</a>
+    </fieldset>
+  </form>
+</article>

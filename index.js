@@ -1,11 +1,22 @@
+//CORE NODE
+const path = require('path')
+
+//NPM LIBS
 const express = require('express')
 const logger = require('morgan')
 const compression = require('compression')
 const couchbase = require('couchbase')
 const bodyParser = require('body-parser')
-
+const passport = require('passport')
+const hbs = require('express-hbs')
+const session = require('express-session')
 const cluster = new couchbase.Cluster('couchbase://localhost')
 const bucket = cluster.openBucket('travel-sample')
+
+//PROYECT FILES
+const routes = require('./config/routes')
+
+
 
 const app = express()
 require('./config/passport')()
@@ -16,30 +27,41 @@ if (process.env.NODE_ENV !== 'test') {
 }
 
 app.use(compression({
-  filter: (req, res) => (/d/.test(res.getHeader('Content-Type'))),
+  filter: (req, res) => (/json|text|javascript|css/.test(res.getHeader('Content-Type'))),
   level: 6
 }))
-//app.use(favicon(path.join(__dirname, 'app/public', 'favicon.ico')));
-app.use(express.static(path.join(__dirname, 'app/public')))
-app.set('views', path.join(__dirname, '../app'))
-app.set('view engine', 'ejs')
+//app.use(favicon(path.join(__dirname, 'app/_public', 'favicon.ico')));
+app.use(express.static(path.join(__dirname, '_public')))
 
+app.engine('hbs', hbs.express4({
+  partialsDir: path.join(__dirname, 'app/partials'),
+  layoutsDir: path.join(__dirname, 'app/layouts'),
+  beautify: true
+}))
+app.set('view engine', 'hbs')
+app.set('views', path.join(__dirname, 'app'))
+
+
+app.use(session({
+  secret: '^Uncg8m$GWy55s`GiIK%zGfTy;{>4,=E"1>SklslKz_bj\8k@{=GjLkNnT+%',
+  resave: false,
+  saveUninitialized: false
+  /* store: new mongoStore({
+    db: db.connection.db,
+    collection: 'sessions'
+  }) */
+}));
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(passport.initialize())
+app.use(passport.session())
 /*
 app.use(express.cookieParser());
 app.use(express.bodyParser());
 app.use(express.methodOverride());
-app.use(express.session({
-  secret: '1337',
-  store: new mongoStore({
-    db: db.connection.db,
-    collection: 'sessions'
-  })
-}));
 app.use(flash());
 */
 
-app.use(passport.initialize());
-app.use(passport.session());
+app.use('/', routes)
 
 
 app.use((req, res, next) => {
@@ -75,7 +97,5 @@ app.use((err, req, res, next) => {
   next()
 })
 */
-
-require('./config/routes')(app)
 
 module.exports = app

@@ -4,7 +4,7 @@
 This directory serve as a location where you can define your various startup scripts, the www is an example on how it should looks like, ultimately you could have startup script like test, stop or restart etc. Having this structure allows you to have different configurations without touching the app.js.
 */
 
-var app = require('../');
+var app = require('../index');
 var debug = require('debug')('auth-express:server');
 var http = require('http');
 

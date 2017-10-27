@@ -1,0 +1,28 @@
+{{!< login}}
+
+<article id="login" class="auth">
+  <h1>Auth express</h1>
+  <h2>Log in!</h2>
+
+  <form action="/signin" method="post" class="local-login">
+    <fieldset>
+      <label for="email">username or email</label>
+      <input type="text" name="email" id="email">
+    </fieldset>
+    <fieldset>
+      <label for="password">password</label>
+      <input type="password" name="password" id="password">
+    </fieldset>
+    <fieldset>
+      <input type="checkbox" id="showpassword"> <label for="showpassword">show password</label>
+    </fieldset>
+    <fieldset>
+      <input type="submit" value="log in">
+      <a href="/amnesia">Forgot password?</a>
+    </fieldset>
+  </form>
+
+  <!--section class="oauth-login"></section-->
+
+  {{> signup }}
+</article>

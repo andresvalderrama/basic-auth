@@ -2,20 +2,35 @@ const express = require('express')
 const passport = require('passport')
 const router = express.Router();
 
-const home = require('../app/home/controllers')
-const auth = require('../app/auth/controllers')
+const auth = require('./middlewares')
 
-/* GET home page. */
-router.get('/', (req, res) => {
-  res.render('home/index', home)
-});
+const home = require('../app/home/controller')
+const signin = require('../app/signin/controller')
+const signup = require('../app/signup/controller')
+const amnesia = require('../app/amnesia/controller')
 
-router.get('/login', (req, res) => {
-  res.render('auth/login', auth)
+router.route('/signin')
+  .get(signin.render)
+  .post(passport.authenticate('local', {
+    failureRedirect: '/signin',
+    //failureFlash: 'Invalid email or password'
+  }), signin.authenticated)
+
+router.route('/amnesia')
+  .get(amnesia.render)
+
+router.get('/signup', signup.render)
+
+
+/*
+router.get('/signup', (req, res) => {
+  res.render('auth/signin', login.render)
 })
 
-router.post('/login', passport.authenticate('local', { successRedirect: '/',
-  failureRedirect: '/login' })
-)
+router.get('/signout', (req, res) => {
+  res.render('auth/signin', login.render)
+}) */
+
+router.get('/', auth.isLoggin, home.render);
 
 module.exports = router;

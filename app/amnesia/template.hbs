@@ -1,0 +1,19 @@
+{{!< login}}
+
+<article id="amnesia" class="auth">
+  <h1>Auth express</h1>
+  <h2>Reset your password</h2>
+
+  <form action="/login" method="post" class="local-login">
+    <fieldset>
+      <label for="usermail">username or email</label>
+      <input type="text" name="usermail" id="usermail">
+    </fieldset>
+    <fieldset>
+      <input type="submit" value="Reset password">
+      <a href="/signin">Sign in</a>
+    </fieldset>
+  </form>
+
+  {{> signup }}
+</article>
