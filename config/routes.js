@@ -31,6 +31,11 @@ router.get('/signout', (req, res) => {
   res.render('auth/signin', login.render)
 }) */
 
+router.get('/locale', function (req, res) {
+  res.cookie('locale', req.query.locale)
+  res.redirect('/')
+})
+
 router.get('/', auth.isLoggin, home.render);
 
 module.exports = router;

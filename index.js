@@ -10,6 +10,9 @@ const bodyParser = require('body-parser')
 const passport = require('passport')
 const hbs = require('express-hbs')
 const session = require('express-session')
+const cookieParser = require('cookie-parser')
+const i18n = require('i18n')
+
 const cluster = new couchbase.Cluster('couchbase://localhost')
 const bucket = cluster.openBucket('travel-sample')
 
@@ -41,7 +44,32 @@ app.engine('hbs', hbs.express4({
 app.set('view engine', 'hbs')
 app.set('views', path.join(__dirname, 'app'))
 
+// register hbs helpers in res.locals' context which provides this.locale
+hbs.registerHelper('__', function () {
+  return i18n.__.apply(this, arguments);
+});
+hbs.registerHelper('__n', function () {
+  return i18n.__n.apply(this, arguments);
+});
 
+i18n.configure({
+  // setup some locales - other locales default to en silently
+  locales: ['es', 'en'],
+
+  // you may alter a site wide default locale
+  defaultLocale: 'es',
+
+  // sets a custom cookie name to parse locale settings from
+  cookie: 'locale',
+
+  // query parameter to switch locale (ie. /home?lang=ch) - defaults to NULL
+  queryParameter: 'locale',
+
+  // where to store json files - defaults to './locales'
+  directory: __dirname + '/locale'
+});
+
+app.use(cookieParser('4Fhl5#jkqhFlj%$3fhZj%&qaTEnblrnb'));
 app.use(session({
   secret: '^Uncg8m$GWy55s`GiIK%zGfTy;{>4,=E"1>SklslKz_bj\8k@{=GjLkNnT+%',
   resave: false,
@@ -61,6 +89,7 @@ app.use(express.methodOverride());
 app.use(flash());
 */
 
+app.use(i18n.init);
 app.use('/', routes)
 
 
