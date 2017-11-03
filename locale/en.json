@@ -1,4 +1,13 @@
 {
-	"Hello World": "Hello World",
-	"Hello": "Hello"
+	"singInP": {
+		"signIn": "sign In",
+		"userMail": "user or email",
+		"password": "password",
+		"showPassword": "show password",
+		"forgotPassword": "forgot password?"
+	},
+	"singInP.signIn": "singInP.signIn",
+	"singInP.password": "singInP.password",
+	"singInP.showPassword": "singInP.showPassword",
+	"singInP.forgotPassword": "singInP.forgotPassword"
 }
