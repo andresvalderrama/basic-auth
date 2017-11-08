@@ -2,6 +2,7 @@
 const path = require('path')
 
 // NPM LIBS
+const dotenv = require('dotenv')
 const express = require('express')
 const logger = require('morgan')
 const compression = require('compression')
@@ -16,6 +17,7 @@ const i18n = require('i18n')
 const routes = require('./config/routes')
 
 const app = express()
+dotenv.config()
 require('./config/passport')()
 
 // Don't use logger for test env
