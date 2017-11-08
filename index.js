@@ -36,18 +36,11 @@ app.use(express.static(path.join(__dirname, '_public')))
 app.engine('hbs', hbs.express4({
   partialsDir: path.join(__dirname, 'app/partials'),
   layoutsDir: path.join(__dirname, 'app/layouts'),
-  beautify: true
+  beautify: true,
+  i18n: i18n
 }))
 app.set('view engine', 'hbs')
 app.set('views', path.join(__dirname, 'app'))
-
-// register hbs helpers in res.locals' context which provides this.locale
-hbs.registerHelper('__', function () {
-  return i18n.__.apply(this, arguments)
-})
-hbs.registerHelper('__n', function () {
-  return i18n.__n.apply(this, arguments)
-})
 
 i18n.configure({
   // setup some locales - other locales default to en silently
