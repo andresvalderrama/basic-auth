@@ -1,6 +1,6 @@
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
-//const User = mongoose.model('User')
+// const User = mongoose.model('User')
 const User = require('../db/users')
 
 const loginFields = {
@@ -9,18 +9,17 @@ const loginFields = {
 }
 
 module.exports = function () {
-
   passport.serializeUser((user, done) => {
     done(null, user.id)
   })
 
-  passport.deserializeUser(function(id, done) {
+  passport.deserializeUser(function (id, done) {
     const _user = User.find((user) => user.id === id)
     done(null, _user)
   })
 
-  passport.use(new LocalStrategy( loginFields,
-    function(email, password, done) {
+  passport.use(new LocalStrategy(loginFields,
+    function (email, password, done) {
       const _user = User.find((user) => user.email === email)
 
       if (!_user) {

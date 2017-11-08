@@ -10,5 +10,5 @@ module.exports = [
     user: 'carlosvalderrama',
     email: '_carlosvalderrama',
     password: '654321'
-  },
+  }
 ]
