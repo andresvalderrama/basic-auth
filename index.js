@@ -5,16 +5,12 @@ const path = require('path')
 const express = require('express')
 const logger = require('morgan')
 const compression = require('compression')
-const couchbase = require('couchbase')
 const bodyParser = require('body-parser')
 const passport = require('passport')
 const hbs = require('express-hbs')
 const session = require('express-session')
 const cookieParser = require('cookie-parser')
 const i18n = require('i18n')
-
-const cluster = new couchbase.Cluster('couchbase://localhost')
-const bucket = cluster.openBucket('travel-sample')
 
 // PROYECT FILES
 const routes = require('./config/routes')
@@ -64,7 +60,7 @@ i18n.configure({
   queryParameter: 'locale',
 
   // where to store json files - defaults to './locales'
-  directory: __dirname + '/locale',
+  directory: path.join(__dirname, 'locale'),
 
   // enable object notiation
   objectNotation: true

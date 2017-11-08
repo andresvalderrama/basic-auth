@@ -1,4 +1,4 @@
-var foo = {
+/* var foo = {
   development: {
     adapter: postgresql,
     database: blog_development,
@@ -14,4 +14,4 @@ var foo = {
     database: blog_development,
     pool: 5
   }
-}
+} */

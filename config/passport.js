@@ -23,11 +23,11 @@ module.exports = function () {
       const _user = User.find((user) => user.email === email)
 
       if (!_user) {
-        return done(null, false, { message: 'Incorrect username'})
+        return done(null, false, { message: 'Incorrect username' })
       }
 
       if (_user.password !== password) {
-        return done(null, false, { message: 'Incorrect password'})
+        return done(null, false, { message: 'Incorrect password' })
       }
       return done(null, _user)
     }
