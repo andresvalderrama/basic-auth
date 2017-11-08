@@ -3,21 +3,20 @@ const passport = require('passport')
 const router = express.Router()
 
 const auth = require('./middlewares')
+const validator = require('./validators')
 
 const home = require('../app/home/controller')
 const signin = require('../app/signin/controller')
 const signup = require('../app/signup/controller')
 const amnesia = require('../app/amnesia/controller')
 
-router.route('/signin')
-  .get(signin.render)
-  .post(passport.authenticate('local', {
-    failureRedirect: '/signin'
-    // failureFlash: 'Invalid email or password'
-  }), signin.authenticated)
+router.get('/signin', signin.render)
+router.post('/signin', validator.signin, passport.authenticate('local', {
+  failureRedirect: '/signin',
+  failureFlash: true
+}), signin.authenticated)
 
-router.route('/amnesia')
-  .get(amnesia.render)
+router.get('/amnesia', amnesia.render)
 
 router.get('/signup', signup.render)
 

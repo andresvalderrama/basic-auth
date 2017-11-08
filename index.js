@@ -12,6 +12,7 @@ const hbs = require('express-hbs')
 const session = require('express-session')
 const cookieParser = require('cookie-parser')
 const i18n = require('i18n')
+const flash = require('connect-flash')
 
 // PROYECT FILES
 const routes = require('./config/routes')
@@ -78,6 +79,7 @@ app.use(session({
     collection: 'sessions'
   }) */
 }))
+app.use(flash())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(passport.initialize())
 app.use(passport.session())

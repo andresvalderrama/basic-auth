@@ -1,6 +1,7 @@
 exports.render = function (req, res) {
   res.render('signin/template', {
-    title: 'Signin'
+    title: 'Signin',
+    err: req.flash('error')
   })
 }
 

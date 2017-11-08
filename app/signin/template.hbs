@@ -3,7 +3,9 @@
 <article id="login" class="auth">
   <h1>Auth express</h1>
   <h2>Log in!</h2>
-
+  {{#each err}}
+  <mark>{{ message }}</mark>
+  {{/each}}
   <form action="/signin" method="post" class="local-login">
     <fieldset>
       <label for="email">{{{__ "singInP.signIn"}}}</label>
