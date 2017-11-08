@@ -66,7 +66,10 @@ i18n.configure({
   queryParameter: 'locale',
 
   // where to store json files - defaults to './locales'
-  directory: __dirname + '/locale'
+  directory: __dirname + '/locale',
+
+  //enable object notiation
+  objectNotation: true
 });
 
 app.use(cookieParser('4Fhl5#jkqhFlj%$3fhZj%&qaTEnblrnb'));

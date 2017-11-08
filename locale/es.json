@@ -5,37 +5,5 @@
 		"password": "contraseña",
 		"showPassword": "mostrar contraseña",
 		"forgotPassword": "¿olvido su contraseña?"
-	},
-	"singInP.signIn": {
-		"one": "singInP.signIn",
-		"other": {
-			"name": "__n",
-			"hash": {},
-			"data": {
-				"root": {
-					"settings": {
-						"x-powered-by": true,
-						"etag": "weak",
-						"env": "development",
-						"query parser": "extended",
-						"subdomain offset": 2,
-						"trust proxy": false,
-						"views": "C:\\Users\\avalderrama\\Documents\\labs\\hello-world\\app",
-						"jsonp callback name": "callback",
-						"view engine": "hbs",
-						"port": 3000
-					},
-					"locale": "es",
-					"title": "Signin",
-					"_locals": {
-						"locale": "es"
-					},
-					"cache": false
-				}
-			}
-		}
-	},
-	"singInP.password": "singInP.password",
-	"singInP.showPassword": "singInP.showPassword",
-	"singInP.forgotPassword": "singInP.forgotPassword"
+	}
 }

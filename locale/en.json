@@ -5,9 +5,5 @@
 		"password": "password",
 		"showPassword": "show password",
 		"forgotPassword": "forgot password?"
-	},
-	"singInP.signIn": "singInP.signIn",
-	"singInP.password": "singInP.password",
-	"singInP.showPassword": "singInP.showPassword",
-	"singInP.forgotPassword": "singInP.forgotPassword"
+	}
 }
