@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "standard --verbose | snazzy && echo \"Error: no test specified\" && exit 1",
     "start": "node ./bin/www"
   },
   "keywords": [],
@@ -25,6 +25,7 @@
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
+    "snazzy": "^7.0.0",
     "standard": "^10.0.3"
   }
 }
