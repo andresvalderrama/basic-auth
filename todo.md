@@ -8,4 +8,6 @@ Multi-regional and multilingual sites- https://support.google.com/webmasters/ans
 
 
 ## TODO
-servir continido separado para cada idioma. doma.in/es/iniciar-sesion, domi.in/login
++ servir continido separado para cada idioma. doma.in/es/iniciar-sesion, domi.in/login
++ revisar porque cuando se agrega cookie: { secure: true } a session no deja pasar los errores flash
++ implementar las validaciones - para produccion
