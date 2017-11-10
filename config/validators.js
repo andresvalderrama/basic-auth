@@ -1,18 +1,19 @@
-const Joi = require('joi')
+const { check, validationResult } = require('express-validator/check')
 
-const signinSchema = {
-  usermail: Joi.string().required(),
-  password: Joi.string().min(5).max(15).required()
-}
-function signin (req, res, next) {
-  Joi.validate(req.body, signinSchema, (err, value) => {
-    if (err) {
-      req.flash('error', err.details)
+exports.signin = [
+  check('usermail')
+    .isEmail().withMessage('must be an email')
+    .trim()
+    .normalizeEmail(),
+  check('password', 'password must be at least 5 chars long and contain one number')
+    .isLength({ min: 5 })
+    .matches(/\d/),
+
+  (req, res, next) => {
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) {
+      req.flash('error', validationResult(req).mapped())
     }
     next()
-  })
-}
-
-module.exports = {
-  signin: signin
-}
+  }
+]

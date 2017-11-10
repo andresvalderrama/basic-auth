@@ -1,7 +1,10 @@
 exports.render = function (req, res) {
+  let errors = req.flash('error')[0] || []
+
   res.render('signin/template', {
     title: 'Signin',
-    err: req.flash('error')
+    errorUsermail: errors.usermail ? errors.usermail.msg : undefined,
+    errorPassword: errors.password ? errors.password.msg : undefined
   })
 }
 
