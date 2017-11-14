@@ -10,5 +10,11 @@
     "dbPasswordError": "the password you entered is incorrect",
     "showPassword": "show password",
     "forgotPassword": "forgot password?"
+  },
+  "amnesiaL": {
+    "reset": "reset your password",
+    "userMail": "username or email",
+    "resetPassword": "reset password",
+    "signIn": "sign in"
   }
 }

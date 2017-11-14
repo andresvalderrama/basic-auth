@@ -2,16 +2,16 @@
 
 <article id="amnesia" class="auth">
   <h1>Auth express</h1>
-  <h2>Reset your password</h2>
+  <h2>{{{__ "amnesiaL.reset"}}}</h2>
 
   <form action="/login" method="post" class="local-login">
     <fieldset>
-      <label for="usermail">username or email</label>
+      <label for="usermail">{{{__ "amnesiaL.userMail"}}}</label>
       <input type="text" name="usermail" id="usermail">
     </fieldset>
     <fieldset>
-      <input type="submit" value="Reset password">
-      <a href="/signin">Sign in</a>
+      <input type="submit" value="{{{__ "amnesiaL.resetPassword"}}}">
+      <a href="/signin">{{{__ "amnesiaL.signIn"}}}</a>
     </fieldset>
   </form>
 

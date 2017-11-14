@@ -10,5 +10,11 @@
     "dbPasswordError": "la contraseña que ingreso es incorrecta",
     "showPassword": "mostrar contraseña",
     "forgotPassword": "¿olvido su contraseña?"
+  },
+  "amnesiaL": {
+    "reset": "recuperar contraseña",
+    "userMail": "usuario o correo",
+    "resetPassword": "recuperar contraseña",
+    "signIn": "iniciar sesión"
   }
 }
