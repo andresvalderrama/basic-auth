@@ -11,7 +11,7 @@
   <main> {{{body}}} </main>
 
   <footer>
-    <a href="/locale?locale=es">español</a> | <a href="/locale?locale=en">english</a>
+    <a href="/locale?locale=es{{#if redirectWhenLocale }}&redirect={{ redirectWhenLocale }}{{/if}}">español</a> | <a href="/locale?locale=en{{#if redirectWhenLocale }}&redirect={{ redirectWhenLocale }}{{/if}}">english</a>
   </footer>
   {{{js}}}
 </body>

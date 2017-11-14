@@ -2,8 +2,10 @@ const express = require('express')
 const passport = require('passport')
 const router = express.Router()
 
-const auth = require('./middlewares')
 const validator = require('./validators')
+
+const amnesiaCtrl = require('../app/amnesia/controller')
+const amnesiaVldtr = require('../app/amnesia/validator')
 
 const home = require('../app/home/controller')
 const signin = require('../app/signin/controller')
@@ -16,7 +18,7 @@ router.post('/signin', validator.signin, passport.authenticate('local', {
   failureFlash: true
 }))
 
-// router.get('/amnesia', amnesia.render)
+router.get('/amnesia', amnesiaVldtr.validate, amnesiaCtrl.render)
 
 // router.get('/signup', signup.render)
 
@@ -30,8 +32,10 @@ router.get('/signout', (req, res) => {
 }) */
 
 router.get('/locale', function (req, res) {
+  let redirectPath = req.query.redirect || '/'
   res.cookie('locale', req.query.locale)
-  res.redirect('/')
+
+  res.redirect(redirectPath)
 })
 
 module.exports = router
