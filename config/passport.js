@@ -5,12 +5,9 @@ const User = require('../db/users')
 
 const loginFields = {
   usernameField: 'usermail',
-  passwordField: 'password'
+  passwordField: 'password',
+  passReqToCallback: true
 }
-
-const passwordError = { password: {
-  msg: ''
-} }
 
 module.exports = function () {
   passport.serializeUser((user, done) => {
@@ -23,20 +20,26 @@ module.exports = function () {
   })
 
   passport.use(new LocalStrategy(loginFields,
-    function (email, password, done) {
+    function (req, email, password, done) {
       const _user = User.find((user) => user.email === email)
+      let catalog = req.getCatalog()
 
       /* if (_user.err) {
         return done(err)
       } */
 
       if (!_user) {
-        return done(null, false, { message: 'Incorrect username' })
+        req.flash('values', req.body)
+        req.flash('dbError', { usermail: { msg: catalog.singInP.dbUserMailError } })
+        return done(null, false)
       }
 
       if (_user.password !== password) {
-        return done(null, false, { message: 'dddddd' })
+        req.flash('values', req.body)
+        req.flash('dbError', { password: { msg: catalog.singInP.dbPasswordError } })
+        return done(null, false)
       }
+
       return done(null, _user)
     }
   ))

@@ -7,18 +7,18 @@ const validator = require('./validators')
 
 const home = require('../app/home/controller')
 const signin = require('../app/signin/controller')
-const signup = require('../app/signup/controller')
-const amnesia = require('../app/amnesia/controller')
 
+router.get('/', home.render)
 router.get('/signin', signin.render)
 router.post('/signin', validator.signin, passport.authenticate('local', {
+  successRedirect: '/',
   failureRedirect: '/signin',
   failureFlash: true
-}), signin.authenticated)
+}))
 
-router.get('/amnesia', amnesia.render)
+// router.get('/amnesia', amnesia.render)
 
-router.get('/signup', signup.render)
+// router.get('/signup', signup.render)
 
 /*
 router.get('/signup', (req, res) => {
@@ -33,7 +33,5 @@ router.get('/locale', function (req, res) {
   res.cookie('locale', req.query.locale)
   res.redirect('/')
 })
-
-router.get('/', auth.isLoggin, home.render)
 
 module.exports = router

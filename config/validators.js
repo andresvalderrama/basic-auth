@@ -19,6 +19,7 @@ exports.signin = [
 
       if (mappedErrors.usermail) {
         mappedErrors.usermail.msg = i18nCatalog.singInP.userMailError
+        req.body.usermail = ''
       }
       if (mappedErrors.password) {
         mappedErrors.password.msg = i18nCatalog.singInP.passwordError
