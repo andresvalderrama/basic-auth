@@ -3,12 +3,11 @@
 <article id="login" class="auth">
   <h1>Auth express</h1>
   <h2>Log in!</h2>
-  <mark>{{error}}</mark>
   <form action="/signin" method="post" class="local-login">
     <fieldset>
-      <div><mark>{{ errorUsermail }}</mark></div>
-      <label for="email">{{{__ "singInP.signIn"}}}</label>
-      <input type="text" name="email" id="email">
+      <div><mark>{{{ errorUsermail }}}</mark></div>
+      <label for="usermail">{{{__ "singInP.signIn"}}}</label>
+      <input type="text" name="usermail" id="usermail" {{#if valueUsermail}}value="{{ valueUsermail }}"{{/if}}>
     </fieldset>
     <fieldset>
       <div><mark>{{ errorPassword }}</mark></div>
