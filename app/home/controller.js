@@ -1,3 +1,9 @@
 exports.render = function (req, res) {
-  res.render('home/template', { title: 'Auth Express' })
+  let notLoggin = !req.user
+
+  console.log(notLoggin)
+  res.render('home/template', {
+    title: 'Auth Express',
+    notLoggin
+  })
 }

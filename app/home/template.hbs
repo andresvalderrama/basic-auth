@@ -1,4 +1,10 @@
 {{!< layout}}
 
 <h1>EJS template</h1>
+
+{{#if notLoggin}}
+<section>
+  home with custom section for guess users!
+</section>
+{{/if}}
 <a href="/signin">Sign in</a>
