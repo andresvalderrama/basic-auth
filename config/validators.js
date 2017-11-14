@@ -22,6 +22,7 @@ exports.signin = [
       }
       if (mappedErrors.password) {
         mappedErrors.password.msg = i18nCatalog.singInP.passwordError
+        req.body.password = ''
       }
 
       req.flash('error', mappedErrors)
