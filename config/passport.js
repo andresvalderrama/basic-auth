@@ -4,9 +4,13 @@ const LocalStrategy = require('passport-local').Strategy
 const User = require('../db/users')
 
 const loginFields = {
-  usernameField: 'email',
+  usernameField: 'usermail',
   passwordField: 'password'
 }
+
+const passwordError = { password: {
+  msg: ''
+} }
 
 module.exports = function () {
   passport.serializeUser((user, done) => {
@@ -22,12 +26,16 @@ module.exports = function () {
     function (email, password, done) {
       const _user = User.find((user) => user.email === email)
 
+      /* if (_user.err) {
+        return done(err)
+      } */
+
       if (!_user) {
         return done(null, false, { message: 'Incorrect username' })
       }
 
       if (_user.password !== password) {
-        return done(null, false, { message: 'Incorrect password' })
+        return done(null, false, { message: 'dddddd' })
       }
       return done(null, _user)
     }
