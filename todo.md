@@ -11,3 +11,5 @@ Multi-regional and multilingual sites- https://support.google.com/webmasters/ans
 + servir continido separado para cada idioma. doma.in/es/iniciar-sesion, domi.in/login
 + revisar porque cuando se agrega cookie: { secure: true } a session no deja pasar los errores flash
 + implementar las validaciones - para produccion
++ revisar el api formData()
++ intregar https://cloudinary.com al portal
