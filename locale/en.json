@@ -1,9 +1,12 @@
 {
-	"singInP": {
-		"signIn": "sign In",
-		"userMail": "user or email",
-		"password": "password",
-		"showPassword": "show password",
-		"forgotPassword": "forgot password?"
-	}
+  "singInP": {
+    "signIn": "sign In",
+    "signInError": "incorrect email or password",
+    "userMail": "user or email",
+    "userMailError": "the email you entered is incorrect.",
+    "password": "password",
+    "passwordError": "the password you entered is incorrect",
+    "showPassword": "show password",
+    "forgotPassword": "forgot password?"
+  }
 }
