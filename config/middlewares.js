@@ -1,7 +1,6 @@
 exports.isLoggin = (req, res, next) => {
-  if (!req.isAuthenticated()) {
-    return res.redirect('/signin')
+  if (req.isAuthenticated()) {
+    return next()
   }
-
-  next()
+  res.redirect('/signin')
 }
