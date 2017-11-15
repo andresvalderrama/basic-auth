@@ -1,6 +1,6 @@
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
-const db = require('./database')
+const query = require('./queries')
 
 const loginFields = {
   usernameField: 'usermail',
@@ -14,14 +14,13 @@ module.exports = function () {
   })
 
   passport.deserializeUser(function (id, done) {
-    const _user = db.get('users').find({ id: id })
+    const _user = query.findUserById(id)
     done(null, _user)
   })
 
   passport.use(new LocalStrategy(loginFields,
     function (req, email, password, done) {
-      // const _user = User.find((user) => user.email === email)
-      const _user = db.get('users').find({ email: email }).value()
+      const _user = query.findUserByEmail(email)
       let catalog = req.getCatalog()
 
       /* if (_user.err) {
