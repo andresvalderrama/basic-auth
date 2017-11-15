@@ -15,7 +15,7 @@ const flash = require('connect-flash')
 const i18n = require('i18n')
 const i18nConfig = require('./config/i18n')
 
-// PROYECT FILES
+// ROUTES
 const routes = require('./config/routes')
 const amnesiaRouter = require('./app/amnesia/router')
 
@@ -77,6 +77,15 @@ app.use((req, res, next) => {
   console.log(res.render)
 
   next()
+})
+
+// ERROR HANDLERS
+app.use((err, req, res, next) => {
+  if (err.code !== 'EBADCSRFTOKEN') {
+    return next()
+  }
+  res.send('403')
+  res.send('from tampered with')
 })
 /*
 var fs = require('fs')
