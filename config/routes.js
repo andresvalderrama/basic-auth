@@ -4,9 +4,6 @@ const router = express.Router()
 
 const validator = require('./validators')
 
-const amnesiaCtrl = require('../app/amnesia/controller')
-const amnesiaVldtr = require('../app/amnesia/validator')
-
 const home = require('../app/home/controller')
 const signin = require('../app/signin/controller')
 
@@ -17,8 +14,6 @@ router.post('/signin', validator.signin, passport.authenticate('local', {
   failureRedirect: '/signin',
   failureFlash: true
 }))
-
-router.get('/amnesia', amnesiaVldtr.validate, amnesiaCtrl.render)
 
 // router.get('/signup', signup.render)
 

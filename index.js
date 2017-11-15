@@ -17,6 +17,7 @@ const i18nConfig = require('./config/i18n')
 
 // PROYECT FILES
 const routes = require('./config/routes')
+const amnesiaRouter = require('./app/amnesia/router')
 
 const app = express()
 dotenv.config()
