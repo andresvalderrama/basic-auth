@@ -1,7 +1,6 @@
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
-// const User = mongoose.model('User')
-const User = require('../db/users')
+const db = require('./database')
 
 const loginFields = {
   usernameField: 'usermail',
@@ -15,13 +14,14 @@ module.exports = function () {
   })
 
   passport.deserializeUser(function (id, done) {
-    const _user = User.find((user) => user.id === id)
+    const _user = db.get('users').find({ id: id })
     done(null, _user)
   })
 
   passport.use(new LocalStrategy(loginFields,
     function (req, email, password, done) {
-      const _user = User.find((user) => user.email === email)
+      // const _user = User.find((user) => user.email === email)
+      const _user = db.get('users').find({ email: email }).value()
       let catalog = req.getCatalog()
 
       /* if (_user.err) {
