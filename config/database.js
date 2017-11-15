@@ -1,17 +1,11 @@
-/* var foo = {
-  development: {
-    adapter: postgresql,
-    database: blog_development,
-    pool: 5
-  },
-  test: {
-    adapter: postgresql,
-    database: blog_development,
-    pool: 5
-  },
-  production: {
-    adapter: postgresql,
-    database: blog_development,
-    pool: 5
-  }
-} */
+const low = require('lowdb')
+const FileSync = require('lowdb/adapters/FileSync')
+
+const adapter = new FileSync('db/users.json')
+const db = low(adapter)
+
+// Set some defaults
+db.defaults({ users: [] })
+  .write()
+
+module.exports = db
