@@ -4,16 +4,22 @@
   <h1>Auth express</h1>
   <h2>{{{__ "amnesiaL.reset"}}}</h2>
 
-  <form action="/login" method="post" class="local-login">
+  {{#unless success}}
+  <form action="/amnesia" method="post" class="local-login">
     <fieldset>
       <label for="usermail">{{{__ "amnesiaL.userMail"}}}</label>
       <input type="text" name="usermail" id="usermail">
     </fieldset>
     <fieldset>
+      <input type="hidden" name="_csrf" value="{{ csrfToken }}">
       <input type="submit" value="{{{__ "amnesiaL.resetPassword"}}}">
       <a href="/signin">{{{__ "amnesiaL.signIn"}}}</a>
     </fieldset>
   </form>
+  {{else}}
+  <p>Check your email for a link to reset your password. If it doesn't appear within a few minutes, check your spam folder.</p>
+  <a href="/signin">Return to sign in</a>
+  {{/unless}}
 
   {{> signup }}
 </article>
