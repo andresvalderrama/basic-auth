@@ -11,8 +11,9 @@ const passport = require('passport')
 const hbs = require('express-hbs')
 const session = require('express-session')
 const cookieParser = require('cookie-parser')
-const i18n = require('i18n')
 const flash = require('connect-flash')
+const i18n = require('i18n')
+const i18nConfig = require('./config/i18n')
 
 // PROYECT FILES
 const routes = require('./config/routes')
@@ -42,25 +43,7 @@ app.engine('hbs', hbs.express4({
 app.set('view engine', 'hbs')
 app.set('views', path.join(__dirname, 'app'))
 
-i18n.configure({
-  // setup some locales - other locales default to en silently
-  locales: ['es', 'en'],
-
-  // you may alter a site wide default locale
-  defaultLocale: 'es',
-
-  // sets a custom cookie name to parse locale settings from
-  cookie: 'locale',
-
-  // query parameter to switch locale (ie. /home?lang=ch) - defaults to NULL
-  queryParameter: 'locale',
-
-  // where to store json files - defaults to './locales'
-  directory: path.join(__dirname, 'locale'),
-
-  // enable object notiation
-  objectNotation: true
-})
+i18n.configure(i18nConfig)
 
 app.use(cookieParser('4Fhl5#jkqhFlj%$3fhZj%&qaTEnblrnb'))
 app.use(session({
@@ -85,6 +68,7 @@ app.use(flash());
 
 app.use(i18n.init)
 app.use('/', routes)
+app.use('/', amnesiaRouter)
 
 app.use((req, res, next) => {
   req.isMobile = /mobile/i.test(req.header('user-agent'))
