@@ -7,6 +7,7 @@
   {{#unless success}}
   <form action="/amnesia" method="post" class="local-login">
     <fieldset>
+      <div><mark>{{ errorUsermail }}</mark></div>
       <label for="usermail">{{{__ "amnesiaL.userMail"}}}</label>
       <input type="text" name="usermail" id="usermail">
     </fieldset>

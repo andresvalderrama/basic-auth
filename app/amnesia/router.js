@@ -17,6 +17,6 @@ const amnesiaVldtr = require('./validator')
  * */
 
 router.get('/amnesia', csrfProtection, amnesiaCtrl.render)
-router.post('/amnesia', csrfProtection, amnesiaVldtr.validate, amnesiaCtrl.checkEmail)
+router.post('/amnesia', csrfProtection, amnesiaVldtr, amnesiaCtrl.checkEmail)
 
 module.exports = router

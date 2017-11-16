@@ -14,6 +14,8 @@
   "amnesiaL": {
     "reset": "reset your password",
     "userMail": "username or email",
+    "clientUserMailError": "the email you entered is incorrect",
+    "dbUserMailError": "the email isn't found",
     "resetPassword": "reset password",
     "signIn": "sign in"
   }
