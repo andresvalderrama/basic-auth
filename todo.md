@@ -13,3 +13,5 @@ Multi-regional and multilingual sites- https://support.google.com/webmasters/ans
 + implementar las validaciones - para produccion
 + revisar el api formData()
 + intregar https://cloudinary.com al portal
++ title tag support for locations
++ usar git flow en el proyecto
