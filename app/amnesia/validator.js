@@ -2,6 +2,7 @@ const { check, validationResult } = require('express-validator/check')
 
 module.exports = [
   check('usermail', 'required')
+    .trim()
     .isEmail()
     .normalizeEmail(),
   (req, res, next) => {

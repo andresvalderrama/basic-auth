@@ -24,6 +24,6 @@ exports.render = (req, res) => {
     redirectWhenLocale: '/amnesia',
     csrfToken: req.csrfToken(),
     errorUsermail: errors.usermail ? errors.usermail.msg : undefined,
-    success: errors.length < 1
+    success: false
   })
 }
