@@ -17,7 +17,6 @@ exports.checkEmail = (req, res, next) => {
 
 exports.render = (req, res) => {
   let errors = req.flash('error')[0] || req.flash('dbError')[0] || []
-  console.log('errors', errors)
 
   res.render('amnesia/template', {
     title: 'Amnesia',

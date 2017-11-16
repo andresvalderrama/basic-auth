@@ -18,6 +18,7 @@
       <input type="checkbox" id="showpassword"> <label for="showpassword">{{{__ "singInP.showPassword"}}}</label>
     </fieldset>
     <fieldset>
+      <input type="hidden" name="_csrf" value="{{ csrfToken }}">
       <input type="submit" value="{{{__ "singInP.signIn"}}}">
       <a href="/amnesia">{{{__ "singInP.forgotPassword"}}}</a>
     </fieldset>

@@ -17,6 +17,7 @@ const i18nConfig = require('./config/i18n')
 
 // ROUTES
 const routes = require('./config/routes')
+const signinRouter = require('./app/signin/router')
 const amnesiaRouter = require('./app/amnesia/router')
 
 const app = express()
@@ -69,6 +70,7 @@ app.use(flash());
 
 app.use(i18n.init)
 app.use('/', routes)
+app.use('/', signinRouter)
 app.use('/', amnesiaRouter)
 
 app.use((req, res, next) => {
@@ -85,7 +87,6 @@ app.use((err, req, res, next) => {
     return next()
   }
   res.send('403')
-  res.send('from tampered with')
 })
 /*
 var fs = require('fs')
