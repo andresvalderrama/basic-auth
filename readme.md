@@ -5,6 +5,12 @@
 ## ToRead - ToCheck
 stackoverflow.com/q/26871522
 Multi-regional and multilingual sites- https://support.google.com/webmasters/answer/182192
++ [Contrain validation](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/Constraint_validation)
++ [Constrain validation - csstricks](https://css-tricks.com/form-validation-part-1-constraint-validation-html/)
++ [Browser compatibility](https://quirksmode.org/)
++ [html standard](https://html.spec.whatwg.org/dev/)
++ [html MDN](https://developer.mozilla.org/en-US/docs/Web/HTML)
++ [http codes](https://httpstatuses.com/)
 
 
 ## TODO
