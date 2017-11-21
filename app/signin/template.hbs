@@ -1,26 +1,28 @@
 {{!< login}}
 
 <article id="login" class="auth">
-  <h1>Auth express</h1>
-  <h2>Log in!</h2>
+  <header>
+    <h2>signin</h2>
+  </header>
   <form action="/signin" method="post" class="local-login">
-    <fieldset>
-      <div><mark>{{{ errorUsermail }}}</mark></div>
+    <fieldset class="usermail">
+      {{#if errorUsermail}}<div class="error"><mark>{{{ errorUsermail }}}</mark></div>{{/if}}
       <label for="usermail">{{{__ "singInP.signIn"}}}</label>
-      <input type="text" name="usermail" id="usermail" {{#if valueUsermail}}value="{{ valueUsermail }}"{{/if}}>
+      <input type="text" name="usermail" required id="usermail" {{#if valueUsermail}}value="{{ valueUsermail }}"{{/if}}>
     </fieldset>
-    <fieldset>
-      <div><mark>{{ errorPassword }}</mark></div>
+    <fieldset class="password">
+      {{#if errorPassword}}<div class="error"><mark>{{ errorPassword }}</mark></div>{{/if}}
       <label for="password">{{{__ "singInP.password"}}}</label>
       <input type="password" name="password" id="password">
     </fieldset>
-    <fieldset>
-      <input type="checkbox" id="showpassword"> <label for="showpassword">{{{__ "singInP.showPassword"}}}</label>
+    <fieldset class="remember-me">
+      <input type="checkbox" id="remember-me">
+      <label for="remember-me">{{{__ "singInP.rememberMe"}}}</label>
     </fieldset>
-    <fieldset>
+    <fieldset class="footer submit">
       <input type="hidden" name="_csrf" value="{{ csrfToken }}">
       <input type="submit" value="{{{__ "singInP.signIn"}}}">
-      <a href="/amnesia">{{{__ "singInP.forgotPassword"}}}</a>
+      <a class="amnesia" href="/amnesia">{{{__ "singInP.forgotPassword"}}}</a>
     </fieldset>
   </form>
 

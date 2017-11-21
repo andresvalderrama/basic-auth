@@ -2,6 +2,10 @@ module.exports.render = function (req, res) {
   let errors = req.flash('error')[0] || req.flash('dbError')[0] || []
   let clientValues = req.flash('values')[0] || []
 
+  if (errors.constructor !== Array) {
+    res.status(202)
+  }
+
   res.render('signin/template', {
     title: 'Signin',
     redirectWhenLocale: '/signin',

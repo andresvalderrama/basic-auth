@@ -8,7 +8,7 @@
     "password": "contraseña",
     "passwordError": "la contraseña que ingreso es incorrecta",
     "dbPasswordError": "la contraseña que ingreso es incorrecta",
-    "showPassword": "mostrar contraseña",
+    "rememberMe": "recordar me",
     "forgotPassword": "¿olvido su contraseña?"
   },
   "amnesiaL": {
