@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "standard --verbose | snazzy && mocha --recursive",
+    "postinstall": "npm start",
+    "lint": "standard --fix --verbose | snazzy",
+    "pretest": "npm run lint",
+    "test": "mocha --colors app/**/*.test.js",
     "start": "nodemon -e js,hbs ./bin/www"
   },
   "keywords": [],

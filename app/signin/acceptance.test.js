@@ -12,6 +12,7 @@ describe('User visits signup page', () => {
     return browser.visit('/signin')
   })
 
+  it('should redirect to login')
   it('should be a successful request', () => {
     browser.assert.status(200)
   })
@@ -53,7 +54,6 @@ describe('User visits signup page', () => {
 
     browser.assert.elements('form fieldset', 4)
   })
-
   it('should refuse wrong mails', (done) => {
     browser.fill('.usermail input[name=usermail]', '_andresvalderrama')
     browser.pressButton('iniciar sesión')
@@ -64,7 +64,54 @@ describe('User visits signup page', () => {
       })
       .then(done, done)
   })
-  it('should refuse empty password')
+  it('should refuse empty password', (done) => {
+    browser.fill('.usermail input[name=usermail]', 'thismailnot@exists.com')
+    browser.pressButton('iniciar sesión')
+    .then(() => {
+      browser.assert.status(202)
+      browser.assert.input('.usermail input[name=usermail]', 'thismailnot@exists.com')
+      browser.assert.text('.password .error', 'la contraseña que ingreso es incorrecta')
+    })
+    .then(done, done)
+  })
+  it('should refuse unregister mails', (done) => {
+    browser.fill('input[name=usermail]', 'thismailnot@exists.com')
+    browser.fill('input[name=password]', '123456')
+    browser.pressButton('iniciar sesión')
+      .then(() => {
+        browser.assert.status(202)
+        browser.assert.elements('.error', 1)
+        browser.assert.text('.usermail .error', 'el correo no existe')
+        browser.assert.input('input[name="usermail"]', 'thismailnot@exists.com')
+        browser.assert.input('input[name="password"]', '')
+      })
+      .then(done, done)
+  })
+  it('should refuse wrong password', (done) => {
+    browser.fill('input[name=usermail]', 'thismail@exists.com')
+    browser.fill('input[name=password]', '7896542')
+    browser.pressButton('iniciar sesión')
+      .then(() => {
+        browser.assert.status(202)
+        browser.assert.elements('.error', 1)
+        browser.assert.input('input[name=usermail]', 'thismail@exists.com')
+        browser.assert.text('.password .error', 'la contraseña que ingreso es incorrecta')
+        browser.assert.input('input[name=password]', '')
+      })
+      .then(done, done)
+  })
+  it('should redirect to home when correct credentials', (done) => {
+    browser.fill('input[name=usermail]', 'thismail@exists.com')
+    browser.fill('input[name=password]', '654321')
+    browser.pressButton('iniciar sesión')
+      .then(() => {
+        browser.assert.redirected()
+        browser.assert.url('/')
+        browser.assert.status('200')
+        // browser.assert.text('#home .user', 'thismail_exists')
+      })
+      .then(done, done)
+  })
   // it('should keep values on partial submissions')
   // it('should refuse invalid emails')
   // it('should accept complete submissions')

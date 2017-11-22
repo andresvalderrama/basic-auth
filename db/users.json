@@ -1,6 +1,12 @@
 {
   "users": [
     {
+      "id": "k529fj4hDhT3F",
+      "user": "thismail_exists",
+      "email": "thismail@exists.com",
+      "password": "654321"
+    },
+    {
       "id": "h452vh5g24j5h",
       "user": "andresvalderrama",
       "email": "_andresvalderrama@outlook.com",
@@ -10,7 +16,7 @@
       "id": "h74l6h73kh4ec",
       "user": "carlosvalderrama",
       "email": "_carlosvalderrama@outlook.com",
-      "password": "654321"
+      "password": "741258"
     }
   ]
 }
