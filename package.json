@@ -8,7 +8,8 @@
     "lint": "standard --fix --verbose | snazzy",
     "pretest": "npm run lint",
     "test": "mocha --colors app/**/*.test.js",
-    "start": "nodemon -e js,hbs ./bin/www"
+    "start": "node ./bin/www",
+    "dev": "nodemon -e js,hbs ./bin/www"
   },
   "keywords": [],
   "author": "",
