@@ -17,11 +17,22 @@ const signinVldtr = require('./validator')
  *
  * */
 
-router.get('/signin', csrfProtection, signinCtrl.render)
-router.post('/signin', csrfProtection, signinVldtr, passport.authenticate('local', {
-  successRedirect: '/',
-  failureRedirect: '/signin',
+router.get('/', csrfProtection, signinCtrl.render)
+
+/* app.get('/protected', function (req, res, next) {
+  passport.authenticate('local', function (err, user, info, status) {
+    if (err) { return next(err) }
+    if (!user) { return res.redirect('/signin') }
+    res.redirect('/account')
+  })(req, res, next)
+}) */
+
+router.post('/', csrfProtection, signinVldtr, passport.authenticate('local', {
+  failureRedirect: '/signup',
   failureFlash: true
-}))
+}), (req, res) => {
+  const _redirectTo = req.flash('redirectTo')[0] || '/'
+  res.redirect(_redirectTo)
+})
 
 module.exports = router

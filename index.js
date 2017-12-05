@@ -20,6 +20,9 @@ const routes = require('./config/routes')
 const signinRouter = require('./app/signin/router')
 const amnesiaRouter = require('./app/amnesia/router')
 
+// MIDDLEWARES
+const isAuthenticated = require('./config/middlewares').isAuthenticated
+
 const app = express()
 dotenv.config()
 require('./config/passport')()
@@ -33,8 +36,6 @@ app.use(compression({
   filter: (req, res) => (/json|text|javascript|css/.test(res.getHeader('Content-Type'))),
   level: 6
 }))
-// app.use(favicon(path.join(__dirname, 'app/_public', 'favicon.ico')));
-app.use(express.static(path.join(__dirname, '_public')))
 
 app.engine('hbs', hbs.express4({
   partialsDir: path.join(__dirname, 'app/partials'),
@@ -62,21 +63,31 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(passport.initialize())
 app.use(passport.session())
 /*
-app.use(express.cookieParser());
-app.use(express.bodyParser());
 app.use(express.methodOverride());
-app.use(flash());
 */
 
+app.use((req, res, next) => {
+  if (!req.user && req.path !== '/signin' && req.path !== '/signup' && req.path !== '/amnesia') {
+    req.flash('redirectTo', req.path)
+  }
+  next()
+})
+
+// app.use(favicon(path.join(__dirname, 'app/_public', 'favicon.ico')));
+app.use(express.static(path.join(__dirname, '_public')))
+
 app.use(i18n.init)
-app.use('/', routes)
-app.use('/', signinRouter)
+app.use('/', isAuthenticated, routes)
+app.use('/signin', signinRouter)
 app.use('/', amnesiaRouter)
+app.use('/account', function (req, res, next) {
+  res.send('protected route')
+})
 
 app.use((req, res, next) => {
   req.isMobile = /mobile/i.test(req.header('user-agent'))
 
-  console.log(res.render)
+  // console.log(res.render)
 
   next()
 })

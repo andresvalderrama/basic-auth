@@ -22,11 +22,12 @@ Multi-regional and multilingual sites- https://support.google.com/webmasters/ans
 
 
 ## TODO
-+ servir continido separado para cada idioma. doma.in/es/iniciar-sesion, domi.in/login
-+ revisar porque cuando se agrega cookie: { secure: true } a session no deja pasar los errores flash
-+ implementar las validaciones - para produccion
-+ revisar el api formData()
-+ intregar https://cloudinary.com al portal
-+ title tag support for locations
-+ usar git flow en el proyecto
-+ Redirecting to previous page after authentication
++ [ ] servir continido separado para cada idioma. doma.in/es/iniciar-sesion, domi.in/login
++ [ ] revisar porque cuando se agrega cookie: { secure: true } a session no deja pasar los errores flash
++ [ ] implementar las validaciones - para produccion
++ [ ] revisar el api formData()
++ [ ] intregar https://cloudinary.com al portal
++ [ ] title tag support for locations
++ [ ] usar git flow en el proyecto
++ [*] [Redirecting to previous page after authentication](https://stackoverflow.com/q/13335881)
++ [dynamic redirect](https://github.com/jaredhanson/passport/issues/120)
