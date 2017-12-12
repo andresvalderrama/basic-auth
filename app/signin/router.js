@@ -28,7 +28,7 @@ router.get('/signin', csrfProtection, signinCtrl.render)
 }) */
 
 router.post('/signin', csrfProtection, signinVldtr, passport.authenticate('local', {
-  failureRedirect: '/signup',
+  failureRedirect: '/signin',
   failureFlash: true
 }), (req, res) => {
   const _redirectTo = req.flash('redirectTo')[0] || '/'
