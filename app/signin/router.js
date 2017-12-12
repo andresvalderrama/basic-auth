@@ -17,7 +17,7 @@ const signinVldtr = require('./validator')
  *
  * */
 
-router.get('/', csrfProtection, signinCtrl.render)
+router.get('/signin', csrfProtection, signinCtrl.render)
 
 /* app.get('/protected', function (req, res, next) {
   passport.authenticate('local', function (err, user, info, status) {
@@ -27,7 +27,7 @@ router.get('/', csrfProtection, signinCtrl.render)
   })(req, res, next)
 }) */
 
-router.post('/', csrfProtection, signinVldtr, passport.authenticate('local', {
+router.post('/signin', csrfProtection, signinVldtr, passport.authenticate('local', {
   failureRedirect: '/signup',
   failureFlash: true
 }), (req, res) => {

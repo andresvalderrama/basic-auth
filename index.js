@@ -77,10 +77,10 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname, '_public')))
 
 app.use(i18n.init)
-app.use('/', isAuthenticated, routes)
-app.use('/signin', signinRouter)
+app.use('/', routes)
+app.use('/', signinRouter)
 app.use('/', amnesiaRouter)
-app.use('/account', function (req, res, next) {
+app.use('/account', isAuthenticated, function (req, res, next) {
   res.send('protected route')
 })
 
