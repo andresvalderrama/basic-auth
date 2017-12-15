@@ -2,19 +2,19 @@
   "users": [
     {
       "id": "k529fj4hDhT3F",
-      "user": "thismail_exists",
+      "username": "this_user_exists",
       "email": "thismail@exists.com",
       "password": "654321"
     },
     {
       "id": "h452vh5g24j5h",
-      "user": "andresvalderrama",
+      "username": "andresvalderrama",
       "email": "_andresvalderrama@outlook.com",
       "password": "1234590"
     },
     {
       "id": "h74l6h73kh4ec",
-      "user": "carlosvalderrama",
+      "username": "carlosvalderrama",
       "email": "_carlosvalderrama@outlook.com",
       "password": "741258"
     }

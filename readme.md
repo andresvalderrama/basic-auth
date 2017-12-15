@@ -16,6 +16,7 @@ Multi-regional and multilingual sites- https://support.google.com/webmasters/ans
 + [http codes](https://httpstatuses.com/)
 + [npm pre/post hooks](http://www.marcusoft.net/2015/08/pre-and-post-hooks-for-npm-scripting.html)
 + [roles](https://gist.github.com/danwit/e0a7c5ad57c9ce5659d2)
++ [mobile templates](https://github.com/madhums/node-express-mongoose-demo/issues/39)
 
 ## ToFollow
 + [BocoupLLC](https://www.youtube.com/user/BocoupLLC)
@@ -30,4 +31,4 @@ Multi-regional and multilingual sites- https://support.google.com/webmasters/ans
 + [ ] title tag support for locations
 + [ ] usar git flow en el proyecto
 + [*] [Redirecting to previous page after authentication](https://stackoverflow.com/q/13335881)
-+ [dynamic redirect](https://github.com/jaredhanson/passport/issues/120)
++ [ ] [dynamic redirect](https://github.com/jaredhanson/passport/issues/120)
