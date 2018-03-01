@@ -16,7 +16,7 @@ Multi-regional and multilingual sites- https://support.google.com/webmasters/ans
 + [http codes](https://httpstatuses.com/)
 + [npm pre/post hooks](http://www.marcusoft.net/2015/08/pre-and-post-hooks-for-npm-scripting.html)
 + [roles](https://gist.github.com/danwit/e0a7c5ad57c9ce5659d2)
-
++ [release cycles](https://en.wikipedia.org/wiki/Software_release_life_cycle)
 ## ToFollow
 + [BocoupLLC](https://www.youtube.com/user/BocoupLLC)
 
