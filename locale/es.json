@@ -1,14 +1,14 @@
 {
   "singInP": {
-    "signIn": "iniciar sesión",
+    "signIn": "usuario o email",
     "signInError": "usuario o contraseña incorrecta",
     "userMail": "usuario o correo",
-    "userMailError": "el correo que ingreso es incorrecto",
-    "dbUserMailError": "el correo no existe",
+    "userMailError": "el usuario que ingreso es incorrecto",
+    "dbUserMailError": "el usuario no existe",
     "password": "contraseña",
     "passwordError": "la contraseña que ingreso es incorrecta",
     "dbPasswordError": "la contraseña que ingreso es incorrecta",
-    "rememberMe": "recordar me",
+    "rememberMe": "recordarme",
     "forgotPassword": "¿olvido su contraseña?"
   },
   "amnesiaL": {

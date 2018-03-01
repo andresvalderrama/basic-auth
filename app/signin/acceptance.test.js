@@ -3,7 +3,7 @@ const Browser = require('zombie')
 
 // We're going to make requests to http://example.com/signup
 // Which will be routed to our test server localhost:3000
-Browser.localhost('localhost', 3333)
+Browser.localhost('localhost', 3000)
 
 describe('User visits signup page', () => {
   const browser = new Browser()
@@ -12,7 +12,9 @@ describe('User visits signup page', () => {
     return browser.visit('/signin')
   })
 
-  it('should redirect to login')
+  it('should redirect to login', () =>
+    browser.assert.status(200)
+  )
   it('should be a successful request', () => {
     browser.assert.status(200)
   })
@@ -108,7 +110,6 @@ describe('User visits signup page', () => {
         browser.assert.redirected()
         browser.assert.url('/')
         browser.assert.status('200')
-        // browser.assert.text('#home .user', 'thismail_exists')
       })
       .then(done, done)
   })

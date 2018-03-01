@@ -1,14 +1,14 @@
 {
   "singInP": {
-    "signIn": "sign In",
+    "signIn": "user or email",
     "signInError": "incorrect email or password",
     "userMail": "user or email",
-    "userMailError": "the email you entered is incorrect.",
-    "dbUserMailError": "the email isn't found",
+    "userMailError": "the user you entered is incorrect.",
+    "dbUserMailError": "the user isn't found",
     "password": "password",
     "passwordError": "the password you entered is incorrect",
     "dbPasswordError": "the password you entered is incorrect",
-    "showPassword": "show password",
+    "rememberMe": "remember me",
     "forgotPassword": "forgot password?"
   },
   "amnesiaL": {

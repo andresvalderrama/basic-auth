@@ -17,16 +17,19 @@ Multi-regional and multilingual sites- https://support.google.com/webmasters/ans
 + [npm pre/post hooks](http://www.marcusoft.net/2015/08/pre-and-post-hooks-for-npm-scripting.html)
 + [roles](https://gist.github.com/danwit/e0a7c5ad57c9ce5659d2)
 + [release cycles](https://en.wikipedia.org/wiki/Software_release_life_cycle)
++ [mobile templates](https://github.com/madhums/node-express-mongoose-demo/issues/39)
+
 ## ToFollow
 + [BocoupLLC](https://www.youtube.com/user/BocoupLLC)
 
 
 ## TODO
-+ servir continido separado para cada idioma. doma.in/es/iniciar-sesion, domi.in/login
-+ revisar porque cuando se agrega cookie: { secure: true } a session no deja pasar los errores flash
-+ implementar las validaciones - para produccion
-+ revisar el api formData()
-+ intregar https://cloudinary.com al portal
-+ title tag support for locations
-+ usar git flow en el proyecto
-+ Redirecting to previous page after authentication
++ [ ] servir continido separado para cada idioma. doma.in/es/iniciar-sesion, domi.in/login
++ [ ] revisar porque cuando se agrega cookie: { secure: true } a session no deja pasar los errores flash
++ [ ] implementar las validaciones - para produccion
++ [ ] revisar el api formData()
++ [ ] intregar https://cloudinary.com al portal
++ [ ] title tag support for locations
++ [ ] usar git flow en el proyecto
++ [*] [Redirecting to previous page after authentication](https://stackoverflow.com/q/13335881)
++ [ ] [dynamic redirect](https://github.com/jaredhanson/passport/issues/120)

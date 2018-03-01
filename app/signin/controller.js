@@ -1,4 +1,6 @@
 module.exports.render = function (req, res) {
+  if (req.user) return res.redirect('/')
+
   let errors = req.flash('error')[0] || req.flash('dbError')[0] || []
   let clientValues = req.flash('values')[0] || []
 
