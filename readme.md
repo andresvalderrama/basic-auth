@@ -18,6 +18,8 @@ Multi-regional and multilingual sites- https://support.google.com/webmasters/ans
 + [roles](https://gist.github.com/danwit/e0a7c5ad57c9ce5659d2)
 + [release cycles](https://en.wikipedia.org/wiki/Software_release_life_cycle)
 + [mobile templates](https://github.com/madhums/node-express-mongoose-demo/issues/39)
++ [Using async/await to write cleaner route handlers](https://itnext.io/using-async-await-to-write-cleaner-route-handlers-7fc1d91b220b)
++ [Node.JS production best practices](http://goldbergyoni.com/checklist-best-practice-of-node-js-in-production/)
 
 ## ToFollow
 + [BocoupLLC](https://www.youtube.com/user/BocoupLLC)
